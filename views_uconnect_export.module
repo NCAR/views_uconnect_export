@@ -1,0 +1,35 @@
+<?php
+/**
+ * @file
+ */
+function views_uconnect_export_init() {
+  // We have to include our theme preprocessors here until:
+  // http://drupal.org/node/1096770 is fixed.
+  module_load_include('inc', 'views_uconnect_export', 'theme/views_uconnect_export.theme');
+}
+
+function views_uconnect_export_views_api() {
+  return array(
+    'api' => 3,
+  );
+}
+
+function views_uconnect_export_theme() {
+  // Make sure that views picks up the preprocess functions.
+  module_load_include('inc', 'views_uconnect_export', 'theme/views_uconnect_export.theme');
+  return array(
+  	'uconnect_export_field_mapper_form' => array (
+      'file' => 'theme/views_uconnect_export.theme.inc',
+      'render element' => 'form',
+    ),
+    'uconnect_export_field_single_attributes_mapper_form' => array (
+      'file' => 'theme/views_uconnect_export.theme.inc',
+      'render element' => 'form',
+    ),
+    'uconnect_export_field_multiple_attributes_mapper_form' => array (
+      'file' => 'theme/views_uconnect_export.theme.inc',
+      'render element' => 'form',
+    )
+  );
+}
+
