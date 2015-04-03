@@ -8,9 +8,18 @@ Also provides a custom views input field for License information (if needed).
 
 ## Requirements
 
-This module requires the following modules/libraries:
+This module requires Views as well as the following modules/libraries:
 
-[UCARConnect] (https://github.com/slclark/uconnect)
+[UCARConnect] (https://github.com/UCAR/uconnect)
+
+Several input field modules are available with special handling and formatting necessary for the UCARConnect repository
+
+[UCARConnect ASN Standard] (https://github.com/UCAR/field_uconnect_asn_standard)
+[UCARConnect Education Level] (https://github.com/UCAR/field_uconnect_education_level)
+[UCARConnect License] (https://github.com/UCAR/field_uconnect_license)
+[UCARConnect Partner Subject] (https://github.com/UCAR/field_uconnect_partner_subject)
+[UCARConnect Resource Type] (https://github.com/UCAR/field_uconnect_resource_type)
+[UCARConnect Subject] (https://github.com/UCAR/field_uconnect_subject)
 
 ## Installation
 
@@ -54,3 +63,8 @@ Current maintainers:
 
 * [Sharon Clark] (https://github.com/slclark)
 
+## Version history
+
+Version  | NOTES
+------------- | -------------
+7.x-1.1  | use custom field module for license rather than views field
