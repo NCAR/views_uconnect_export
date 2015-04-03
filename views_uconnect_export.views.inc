@@ -120,19 +120,3 @@ function views_uconnect_export_views_plugins() {
 	
  }
  
-/**
- * Implementation of hook_views_data().
- */
-function views_uconnect_export_views_data() {
-	$data = array();
-	// for license
-	$data['node']['uconnect_license'] = array(
-		'title' => t('UCARConnect License'), 
-		'help' => t('The License for using this content.'), 
-		'field' => array(
-			'handler' => 'views_uconnect_export_handler_field_license', 
-		), 
-	);
-	
-	return $data;
-}

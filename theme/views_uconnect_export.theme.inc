@@ -25,7 +25,6 @@ function theme_views_uconnect_export_row_lar_fields($vars) {
 		$empty = $field_output !== 0 && empty($field_output);
 		if (empty($field -> options['exclude']) && (!$empty || (empty($field -> options['hide_empty']) && empty($vars['options']['hide_empty'])))) {
 			$key = check_plain(_views_uconnect_export_xml_tag_clean($view -> field[$id] -> label()));
-
 			// TODO: special handling for license
 
 			if (!empty($field -> options['uconnect_attributes'])) {
@@ -117,51 +116,30 @@ function theme_views_uconnect_export_row_lar_fields($vars) {
 				}
 			}
 			else if ($key == 'license') {
-				// special handling for license nested fields
-
-				// handle child values
+				// special handling for license nested fields from UCARConnect license field module
 				$children = array();
 
-				// name is required
-				if (!empty($field -> options['license_name'])) {
-					if (!empty($field -> options['license_url'])) {
-						$a_attribs['URL'] = _views_uconnect_export_xmlstr(trim($field -> options['license_url']));
-					}
-					$childitem = array();
-					$childitem['key'] = 'name';
-					$childitem['value'] = _views_uconnect_export_xmlstr(trim($field -> options['license_name']));
-					$childitem['attributes'] = $a_attribs;
+				$json_data = json_decode($field_output);
+				foreach ($json_data as $json_index => $json_value) {
+
+					$childitem['key'] = $json_value -> key;
+					$childitem['value'] = _views_uconnect_export_xmlstr($json_value -> value);
+					$childitem['attributes'] = (array)$json_value -> attributes;
 
 					$children[] = $childitem;
-					$a_attribs = array();
-					foreach ($field->options['license_properties'] as $item_index => $item_value) {
-						if (!empty($item_value['license_property'])) {
-							$childitem = array();
-							$childitem['key'] = 'property';
-							$childitem['value'] = _views_uconnect_export_xmlstr(trim($item_value['license_property']));
-							$childitem['attributes'] = $a_attribs;
 
-							$children[] = $childitem;
-						}
-					}
-					if (!empty($field -> options['license_explanation'])) {
-						$childitem = array();
-						$childitem['key'] = 'explanation';
-						$childitem['value'] = _views_uconnect_export_xmlstr(trim($field -> options['license_explanation']));
-						$childitem['attributes'] = $a_attribs;
-
-						$children[] = $childitem;
-					}
-
-					// add license
-					$item = array();
-					$item['key'] = $key;
-					$item['value'] = $children;
-					$item['attributes'] = $a_attribs;
-
-					$items[] = $item;
 				}
-			} else if (($key == 'keyword' || $key == 'educationLevel' || $key == 'subject' || $key == 'resourceType') && strpos($field_output, ',') !== false) {
+
+				// add license
+				$item = array();
+				$item['key'] = $key;
+				$item['value'] = $children;
+				$item['attributes'] = $a_attribs;
+
+				$items[] = $item;
+
+			}
+			else if (($key == 'keyword' || $key == 'educationLevel' || $key == 'subject' || $key == 'resourceType') && strpos($field_output, ',') !== false) {
 				// need to split value by comma
 				$a_field_items = explode(',', $field_output);
 				foreach ($a_field_items as $item_index => $item_value) {
