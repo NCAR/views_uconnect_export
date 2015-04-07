@@ -15,10 +15,15 @@ This module requires Views as well as the following modules/libraries:
 Several input field modules are available with special handling and formatting necessary for the UCARConnect repository
 
 [UCARConnect ASN Standard] (https://github.com/UCAR/field_uconnect_asn_standard)
+
 [UCARConnect Education Level] (https://github.com/UCAR/field_uconnect_education_level)
+
 [UCARConnect License] (https://github.com/UCAR/field_uconnect_license)
+
 [UCARConnect Partner Subject] (https://github.com/UCAR/field_uconnect_partner_subject)
+
 [UCARConnect Resource Type] (https://github.com/UCAR/field_uconnect_resource_type)
+
 [UCARConnect Subject] (https://github.com/UCAR/field_uconnect_subject)
 
 ## Installation
