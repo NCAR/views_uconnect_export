@@ -4,7 +4,6 @@ Views UCARConnect Export
 ## Introduction
 
 The UCARConnect Export views plugin module is a Drupal 7 plugin for Views that provides a formatted XML output of site content that conforms to the NSDL LAR schema necessary for static repository ingest into the UCARConnect Learning Resource Catalog.
-Also provides a custom views input field for License information (if needed).
 
 ## Requirements
 
