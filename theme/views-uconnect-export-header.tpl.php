@@ -1,14 +1,3 @@
-<?php print '<?xml version="1.0" encoding="utf-8" ?>'."\n"; ?>
-<!DOCTYPE Repository [
-<!ENTITY rsquo   "'">
-<!ENTITY oacute   "ó">
-<!ENTITY aacute   "á">
-<!ENTITY ntilde   "ñ">
-<!ENTITY uacute   "ú">
-<!ENTITY iacute   "í">
-<!ENTITY eacute   "é">
-]>
-
 <Repository xmlns="http://www.openarchives.org/OAI/2.0/static-repository" 
             xmlns:oai="http://www.openarchives.org/OAI/2.0/" 
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
